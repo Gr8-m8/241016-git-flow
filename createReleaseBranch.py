@@ -14,7 +14,7 @@ KEY_UPDATE = 2
 KEY_UPDATEMINOR = 4
 KEYS_UPDATEMAJOR = 0
 
-versionfilepath = "version.txt"
+versionfilepath = "version.data"
 
 #kommand som används för relevanta git funktioner
 gitbranchcommand = "git branch" #skapar ny git branch med argumentet branchnamn
@@ -24,7 +24,7 @@ gitpushcommand = "git origin push" #lägga up git ändringar på git repositorie
 branchtype = "release" #branchnamn prefix
 version: str #branchnamn versionsnummer
 
-#öppna filen version.txt och läs dess innehåll till versions variabeln
+#öppna filen version.data och läs dess innehåll till versions variabeln
 version_file = open(versionfilepath, "r")
 version = version_file.readline()
 version_file.close()
