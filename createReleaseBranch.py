@@ -1,4 +1,4 @@
-import os
+import subprocess
 
 #Sant: Om den ska printa commandon till consolen
 #Falsk: Om den ska utföra commandon
@@ -61,6 +61,6 @@ output_pushbranch = f"{gitpushcommand} {branchname}"
 if DEBUG: #om DEBUG läge printa
     print(output_newbranch)
     print(output_pushbranch)
-else: #om inte DEBUG läge. os.system funktionen skriver till consolen som om en användare skulle göra det
-    os.system(output_newbranch)
-    os.system(output_pushbranch)
+else: #om inte DEBUG läge. subprocess.call funktionen skriver till consolen som om en användare skulle göra det
+    subprocess.call(output_newbranch)
+    subprocess.call(output_pushbranch)
