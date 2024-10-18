@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-DEBUG = True
+DEBUG = False
 
 versionfilepath = "version.data"
 
