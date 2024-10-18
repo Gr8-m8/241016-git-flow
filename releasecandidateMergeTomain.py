@@ -1,4 +1,3 @@
-import os
 import subprocess
 
 DEBUG = False
@@ -10,18 +9,24 @@ gitswitchbranch = "git switch"
 gitgetbranchcommand = "git rev-parse --abbrev-ref HEAD"
 
 branchtype = "release"
-destinationbranchname = "main"
-currentbranchname = subprocess.getoutput(gitgetbranchcommand)
+sourcebranchname = "main"
+destinationbranchname: str
 
-if not currentbranchname.startswith(branchtype):
+startbranchname = subprocess.getoutput(gitgetbranchcommand)
+
+if not startbranchname.startswith(branchtype):
     version: str
     versionfile = open(versionfilepath, "r")
     version = versionfile.readline()
     versionfile.close()
 
-    output_gitswitchbranchcommand = f"{gitswitchbranch} {branchtype}_{version}"
-    print(output_gitswitchbranchcommand) if DEBUG else None
-    subprocess.call(output_gitswitchbranchcommand) if not DEBUG else None
+    destinationbranchname = f"{branchtype}_{version}"
+else:
+    destinationbranchname = startbranchname
+
+output_gitswitchbranchcommand = f"{gitswitchbranch} {sourcebranchname}"
+print(output_gitswitchbranchcommand) if DEBUG else None
+subprocess.call(output_gitswitchbranchcommand) if not DEBUG else None
 
 output_gitmergecommand = f"{gitmergecommand} {destinationbranchname}"
 print(output_gitmergecommand) if DEBUG else None
