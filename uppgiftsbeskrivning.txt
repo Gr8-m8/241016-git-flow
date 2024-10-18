@@ -6,7 +6,7 @@ repositoriet.
 
 2. Göra en merge från release candidate branchen till main
 branchen.
--- NO
+-- OK
 
 3. ”Merge down” från main-branchen. Dvs. Gör en merge från
 main-branchen till releaseCandidate branchen (om det finns
@@ -15,14 +15,14 @@ någon) samt develop branchen.
 
 4. Skapa två stycken pipelines (GitHub actions), en som heter
 ”CreateReleaseBranch” och en som heter ”MergeDown”.
---NO
+-- NO
 
 5. ”CreateReleaseBranch” ska kunna köras för att skapa en ny
 release branch med ”nästa” version. Dvs. Om senaste release
 branchen var 1.0.0 ska denna förslagsvis vara 2.0.0.
---NO
+-- NO
 
 6. ”MergeDown” ska kunna köras för att merga in main
 branchen i develop OCH release kandidat branchen om det
 finns någon.
---NO
+-- NO
